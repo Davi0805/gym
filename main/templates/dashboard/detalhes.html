@@ -7,11 +7,11 @@
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   <ul class="list-group">
-    {% for exerc in fichadetalhada %}
-    {% for peso in pesolog %}
+    {% for exerc in exercset %}
+    {% for peso in exerclog %}
     <li class="list-group-item d-flex justify-content-between align-items-center">
         {{exerc}}
-      <span class="badge badge-primary badge-pill">{{peso.peso1}} Kg</span>
+      <span class="badge badge-primary badge-pill">{{peso.peso}} Kg</span>
     </li>
     {% endfor %}
     {% endfor %}

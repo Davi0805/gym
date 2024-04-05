@@ -2,44 +2,35 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
+class Exercname(models.Model):
+    name = models.CharField(max_length=50, null=True)
 
-class Protocolo01(models.Model):
-    exercname = models.CharField(max_length=30)
-    exercset = models.IntegerField()
-    exercminrep = models.IntegerField()
-    
     def __str__(self):
-        return self.exercname
+        return self.name
     
-class Protocolo02(models.Model):
-    exercname = models.CharField(max_length=30)
-    exercset = models.IntegerField()
-    exercminrep = models.IntegerField()
-    
-    def __str__(self):
-        return self.exercname
-    
-class Protocolo03(models.Model):
-    exercname = models.CharField(max_length=30)
-    exercset = models.IntegerField()
-    exercminrep = models.IntegerField()
-    
-    def __str__(self):
-        return self.exercname
+class Fichaname(models.Model):
+    name = models.CharField(max_length=50, null=True)
 
-class Protocolo04(models.Model):
-    exercname = models.CharField(max_length=30)
-    exercset = models.IntegerField()
-    exercminrep = models.IntegerField()
-    
     def __str__(self):
-        return self.exercname
-    
-class Registros(models.Model):
-    peso1 = models.IntegerField()
-    peso2 = models.IntegerField()
-    peso3 = models.IntegerField()
-    peso4 = models.IntegerField()
-    peso5 = models.IntegerField()
-    peso6 = models.IntegerField()
-    data = models.DateTimeField(auto_now=True)
+        return self.name
+
+class Exercparam(models.Model):
+        
+    nome = models.ManyToManyField('Exercname', null=True, on_delete=models.CASCADE,)
+    ficha = models.ManyToManyField('Fichaname', null=True, on_delete=models.SET_NULL,)
+    serie = models.IntegerField(default=3, null=True)
+    repetmin = models.IntegerField(default=10, null=True)
+    repetmax = models.IntegerField(default=12, null=True)
+    pesomin = models.IntegerField(null=True)
+
+    def __unicode__(self):
+        return self.nome
+
+class Log(models.Model):
+    name = models.ManyToManyField('Exercname', null=True, on_delete=models.CASCADE,)
+    ficha = models.ManyToManyField('Fichaname', null=True, on_delete=models.SET_NULL,)
+    data = models.DateTimeField(auto_now=True, null=True)
+    peso = models.IntegerField(null=True)
+
+    def __unicode__(self):
+        return self.name

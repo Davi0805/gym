@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Protocolo01, Protocolo02, Protocolo03, Protocolo04, Registros
+from .models import Exercparam, Log, Fichaname, Exercname
 
 # Register your models here.
-admin.site.register(Protocolo01)
-admin.site.register(Protocolo02)
-admin.site.register(Protocolo03)
-admin.site.register(Protocolo04)
-admin.site.register(Registros)
+
+
+admin.site.register(Fichaname)
+admin.site.register(Exercname)
+admin.site.register(Exercparam)
+admin.site.register(Log)
