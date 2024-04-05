@@ -2,9 +2,20 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
+class Exercicios(models.Model):
+    name = models.CharField(max_length=50, null=True)
+
+    def __str__(self):
+        return self.name
+
+class Ficha(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
 
 class Protocolo01(models.Model):
-    exercname = models.CharField(max_length=30)
+    exercname = models.ForeignKey(Exercicios, null=True, on_delete=models.CASCADE)
     exercset = models.IntegerField()
     exercminrep = models.IntegerField()
     
@@ -12,7 +23,7 @@ class Protocolo01(models.Model):
         return self.exercname
     
 class Protocolo02(models.Model):
-    exercname = models.CharField(max_length=30)
+    exercname = models.ForeignKey(Exercicios, null=True, on_delete=models.CASCADE)
     exercset = models.IntegerField()
     exercminrep = models.IntegerField()
     
@@ -20,7 +31,7 @@ class Protocolo02(models.Model):
         return self.exercname
     
 class Protocolo03(models.Model):
-    exercname = models.CharField(max_length=30)
+    exercname = models.ForeignKey(Exercicios, null=True, on_delete=models.CASCADE)
     exercset = models.IntegerField()
     exercminrep = models.IntegerField()
     
@@ -28,7 +39,7 @@ class Protocolo03(models.Model):
         return self.exercname
 
 class Protocolo04(models.Model):
-    exercname = models.CharField(max_length=30)
+    exercname = models.ForeignKey(Exercicios, null=True, on_delete=models.CASCADE)
     exercset = models.IntegerField()
     exercminrep = models.IntegerField()
     
@@ -37,9 +48,5 @@ class Protocolo04(models.Model):
     
 class Registros(models.Model):
     peso1 = models.IntegerField()
-    peso2 = models.IntegerField()
-    peso3 = models.IntegerField()
-    peso4 = models.IntegerField()
-    peso5 = models.IntegerField()
-    peso6 = models.IntegerField()
+    exercname = models.ForeignKey(Exercicios, null=True, on_delete=models.CASCADE)
     data = models.DateTimeField(auto_now=True)
