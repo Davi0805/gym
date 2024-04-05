@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .models import ExercParam, Log
+from .models import Exercname, Fichaname, Exercparam, Log
 
 # Create your views here.
 def dashboard(request):
-    exercset = ExercParam.objects.all()
+    exercset = Exercparam.objects.all()
     exerclog = Log.objects.all()
 
     return render(request, 'dashboard/dashboard.html', 
@@ -13,8 +13,8 @@ def dashboard(request):
                   )
 
 def fichadetalhes(request, id_ficha):
-    exercset = ExercParam.objects.get(idficha = id_ficha)
-    exerclog = Log.objects.get(idficha = id_ficha)
+    exercset = Exercparam.objects.all()
+    exerclog = Log.objects.all()
    
    
 
