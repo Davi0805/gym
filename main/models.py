@@ -16,8 +16,8 @@ class Fichaname(models.Model):
 
 class Exercparam(models.Model):
         
-    nome = models.ManyToManyField('Exercname', on_delete= models.CASCADE,)
-    ficha = models.ManyToManyField('Fichaname', on_delete= models.SET_NULL,)
+    nome = models.OneToOneField(Exercname, on_delete= models.CASCADE)
+    ficha = models.ManyToManyField(Fichaname, on_delete= models.SET_NULL)
     serie = models.IntegerField(default=3, null=True)
     repetmin = models.IntegerField(default=10, null=True)
     repetmax = models.IntegerField(default=12, null=True)
@@ -26,8 +26,8 @@ class Exercparam(models.Model):
 
 
 class Log(models.Model):
-    name = models.ManyToManyField('Exercname', on_delete= models.CASCADE,)
-    ficha = models.ManyToManyField('Fichaname', on_delete= models.SET_NULL,)
+    name = models.OneToOneField(Exercname, on_delete= models.CASCADE, primary_key=True)
+    ficha = models.ManyToManyField(Fichaname)
     data = models.DateTimeField(auto_now=True, null= True)
     peso = models.IntegerField(null= True)
 
