@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Exercname, Fichaname, Exercparam, Log
+from .models import Exercparam, Log
 
 # Create your views here.
 def dashboard(request):
