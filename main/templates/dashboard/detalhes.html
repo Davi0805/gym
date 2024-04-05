@@ -1,0 +1,20 @@
+{% extends 'dashboard/layout.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="card-body">
+    <h5 class="card-title">Ficha 0{{id_ficha}}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group">
+    {% for exerc in fichadetalhada %}
+    {% for peso in pesolog %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{exerc}}
+      <span class="badge badge-primary badge-pill">{{peso.peso1}} Kg</span>
+    </li>
+    {% endfor %}
+    {% endfor %}
+  </ul>
+</div>
+  {% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'dashboard/layout.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <strong>
+              <h5 class="card-title">Ficha 01</h5>
+              <p class="card-text">Treino de peito, ombro e triceps</p>
+                </strong>
+            </div>
+            {% for exerc in ficha01|slice:":3" %}
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{exerc}}</li>
+            {% endfor %}
+            </ul>
+            <div class="card-body">
+                <button type="button" class="btn btn-outline-secondary">Ver mais</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <strong>
+                  <h5 class="card-title">Ficha 02</h5>
+                  <p class="card-text">Treino de costas</p>
+                    </strong>
+                </div>
+                {% for exerc in ficha02|slice:":3" %}
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{exerc}}</li>
+                {% endfor %}
+                </ul>
+                <div class="card-body">
+                    <button type="button" class="btn btn-outline-secondary">Ver mais</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <strong>
+                      <h5 class="card-title">Ficha 03</h5>
+                      <p class="card-text">Treino de perna</p>
+                        </strong>
+                    </div>
+                    {% for exerc in ficha03|slice:":3" %}
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">{{exerc}}</li>
+                    {% endfor %}
+                    </ul>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-outline-secondary">Ver mais</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <strong>
+                          <h5 class="card-title">Ficha 04</h5>
+                          <p class="card-text">Treino de abdomen e cardio</p>
+                            </strong>
+                        </div>
+                        {% for exerc in ficha04|slice:":3" %}
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">{{exerc}}</li>
+                        {% endfor %}
+                        </ul>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-outline-secondary">Ver mais</button>
+                        </div>
+                      </div>
+                    </div>
+        
+    </div>
+</div>
+{% endblock %}
