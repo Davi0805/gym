@@ -13,12 +13,12 @@ def dashboard(request):
                   )
 
 def fichadetalhes(request, id_ficha):
-    exercset = Exercparametros.objects.all()
-    exerclog = Log.objects.all()
+      exercset = Exercparametros.objects.all()
+      exerclog = Log.objects.all()
    
    
 
-    return render(request, 'dashboard/detalhes.html', 
-                  {'exercset': exercset,
-                    'exerclog': exerclog,
-                   })
+      return render(request, 'dashboard/detalhes.html', {'exercset': exercset,
+                                                       'exerclog': exerclog,
+                                                       }
+                                                      )
