@@ -19,12 +19,11 @@ def fichadetalhes(request, id_ficha):
       #exercsetnofilter = requests.get('http://16.171.208.14/api/exerc/').json()
       #exercset = [exerc for exerc in exercsetnofilter if exerc["ficha"] == id_ficha]
 
-      exercset = requests.get('http://16.171.208.14/api/exerc/').json()
+      exercset = requests.get(f'http://16.171.208.14/api/exerc/?ficha={id_ficha}').json()
 
 
       return render(request, 'dashboard/detalhes.html', {'exercset': exercset,
                                                        'id_ficha': id_ficha,
-
                                                         }
                                                       )
 
