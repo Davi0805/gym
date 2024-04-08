@@ -13,7 +13,6 @@ from django.db.models import (
 class Fichaname(models.Model):
 
     name = models.CharField(max_length=50, null=True)
-    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def __str__(self):
         return self.name
@@ -28,10 +27,6 @@ class Exercparametros(models.Model):
     repetmax = models.IntegerField(default=12, null=True, blank=True)
     pesomin = models.IntegerField(null=True, blank=True)
     pesomax = models.IntegerField(null=True, blank=True)
-    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
-
-    def __unicode__(self):
-        return u'%s' % self.name
 
     def __str__(self):
         return self.name
@@ -42,7 +37,6 @@ class Exercparametros(models.Model):
 class Log(models.Model):
     data = models.DateTimeField(auto_now_add=True, null= True)
     peso = models.IntegerField(null= True, blank=True)
-    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     exerc = models.ManyToManyField('Exercparametros')
 
     def __str__(self):
